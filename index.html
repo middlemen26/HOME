@@ -124,6 +124,7 @@
       border-top:1px solid #1f1f2f;
     }
   </style>
+  
 </head>
 
 <body>
@@ -207,6 +208,33 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 </script>
+  <script>
+  function openFlow() {
+    document.getElementById("flowOverlay").classList.add("active");
+  }
+
+  function closeFlow() {
+    document.getElementById("flowOverlay").classList.remove("active");
+  }
+
+  function sendMail() {
+    const name = document.querySelector('#flowOverlay input[placeholder="Your Name"]').value;
+    const business = document.querySelector('#flowOverlay input[placeholder="Business Name"]').value;
+    const phone = document.querySelector('#flowOverlay input[placeholder="WhatsApp Number"]').value;
+    const plan = document.querySelector('#flowOverlay select').value;
+
+    const subject = encodeURIComponent("New Website Enquiry");
+    const body = encodeURIComponent(
+      `Name: ${name}\n` +
+      `Business: ${business}\n` +
+      `Phone: ${phone}\n` +
+      `Selected Plan: ${plan}`
+    );
+
+    window.location.href = `mailto:yourmail@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
 
 </body>
 </html>
