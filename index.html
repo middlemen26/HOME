@@ -10,131 +10,91 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Inter,sans-serif;
+  font-family:'Inter',sans-serif;
   background:#0b0b0f;
   color:#fff;
-  line-height:1.6
+  line-height:1.6;
+  overflow-x:hidden;
 }
 
 /* ===== HERO ===== */
 header{
-  padding:90px 20px;
+  padding:100px 20px;
   text-align:center;
-  background:radial-gradient(circle at top,#1b1b2f,#0b0b0f 70%)
+  background:radial-gradient(circle at top,#1b1b2f,#0b0b0f 70%);
 }
 header h1{
-  font-family:Poppins,sans-serif;
+  font-family:'Poppins',sans-serif;
   font-size:2.8rem;
-  margin-bottom:14px
+  margin-bottom:14px;
 }
 header p{
   max-width:620px;
-  margin:0 auto 28px;
-  color:#b9b9c9
+  margin:0 auto 30px;
+  color:#b9b9c9;
 }
 
 /* ===== BUTTON ===== */
 .btn{
-  padding:14px 32px;
+  padding:14px 34px;
   background:#6c63ff;
   color:#fff;
   border:none;
   border-radius:10px;
   font-weight:600;
-  cursor:pointer
+  cursor:pointer;
+  transition:.3s;
 }
+.btn:hover{transform:translateY(-2px)}
 
 /* ===== SECTIONS ===== */
-section{padding:80px 20px;text-align:center}
+section{
+  padding:120px 20px;
+  text-align:center;
+}
 
 /* ===== PRICING ===== */
+#pricing{padding-top:140px}
 .pricing{
+  margin-top:40px;
   display:flex;
-  gap:25px;
+  gap:30px;
   justify-content:center;
-  flex-wrap:wrap
+  flex-wrap:wrap;
 }
 .card{
   background:#131320;
   border-radius:18px;
-  padding:36px 30px;
+  padding:38px 32px;
   width:300px;
   text-align:left;
-  overflow:hidden;
   transition:.35s ease;
-  box-shadow:0 10px 40px rgba(0,0,0,.4)
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
 .card:hover{
   transform:translateY(-12px);
-  box-shadow:0 25px 80px rgba(108,99,255,.35)
+  box-shadow:0 25px 80px rgba(108,99,255,.35);
 }
-.highlight{
-  border:2px solid #6c63ff
-}
-.card h3{font-family:Poppins,sans-serif}
+.card h3{font-family:'Poppins',sans-serif}
 .price{
   font-size:1.7rem;
   font-weight:700;
   margin:18px 0;
-  color:#6c63ff
+  color:#6c63ff;
 }
 .card ul{list-style:none}
 .card li{
   margin:10px 0;
   color:#cfcfe8;
-  line-height:1.6
+  line-height:1.6;
 }
+.highlight{border:2px solid #6c63ff}
 
 /* ===== CTA ===== */
 .cta{
   background:linear-gradient(135deg,#151525,#0b0b0f);
   border-top:1px solid #1f1f35;
-  border-bottom:1px solid #1f1f35
-}
-
-/* ===== ONBOARDING ===== */
-.hidden{display:none}
-.onboarding{
-  min-height:100vh;
-  padding:60px 20px;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start
-}
-.onboard-box{
-  width:100%;
-  max-width:700px;
-  background:#131320;
-  border-radius:18px;
-  padding:40px
-}
-.step-title{
-  font-family:Poppins,sans-serif;
-  font-size:2rem;
-  margin-bottom:8px
-}
-.step-desc{
-  color:#b9b9c9;
-  margin-bottom:30px
-}
-.field{margin-bottom:18px}
-.field label{
-  display:block;
-  margin-bottom:6px;
-  font-weight:600
-}
-.field input,.field select,.field textarea{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #2a2a45;
-  background:#0f0f1c;
-  color:#fff
-}
-.nav-btns{
-  display:flex;
-  gap:16px;
-  margin-top:30px
+  border-bottom:1px solid #1f1f35;
 }
 
 /* ===== FOOTER ===== */
@@ -142,7 +102,60 @@ footer{
   padding:30px;
   text-align:center;
   color:#777;
-  border-top:1px solid #1f1f2f
+  border-top:1px solid #1f1f2f;
+}
+
+/* ===== ONBOARDING ===== */
+.hidden{display:none}
+.onboarding{
+  position:fixed;
+  inset:0;
+  background:#0b0b0f;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+.onboarding.active{display:flex}
+
+.onboard-box{
+  width:100%;
+  max-width:720px;
+  background:#131320;
+  border-radius:20px;
+  padding:40px;
+}
+.step-title{
+  font-family:'Poppins',sans-serif;
+  font-size:2rem;
+  margin-bottom:6px;
+}
+.step-desc{
+  color:#b9b9c9;
+  margin-bottom:30px;
+}
+.step{display:none}
+.step.active{display:block}
+
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+}
+.field input,.field select,.field textarea{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #2a2a45;
+  background:#0f0f1c;
+  color:#fff;
+}
+
+.nav-btns{
+  display:flex;
+  gap:16px;
+  margin-top:30px;
 }
 </style>
 </head>
@@ -197,20 +210,18 @@ footer{
 </div>
 
 <!-- ===== ONBOARDING ===== -->
-<div id="onboarding" class="onboarding hidden">
+<div id="onboarding" class="onboarding">
   <div class="onboard-box">
     <h1 class="step-title" id="stepTitle"></h1>
     <p class="step-desc" id="stepDesc"></p>
 
-    <!-- STEP 1 -->
-    <div class="step" data-step="1">
+    <div class="step active" data-step="1">
       <div class="field"><label>Name</label><input id="name"></div>
       <div class="field"><label>Business</label><input id="business"></div>
       <div class="field"><label>Email</label><input id="email" type="email"></div>
     </div>
 
-    <!-- STEP 2 -->
-    <div class="step hidden" data-step="2">
+    <div class="step" data-step="2">
       <div class="field">
         <label>Website Type</label>
         <select id="type">
@@ -225,8 +236,7 @@ footer{
       </div>
     </div>
 
-    <!-- STEP 3 -->
-    <div class="step hidden" data-step="3">
+    <div class="step" data-step="3">
       <div class="field">
         <label>Plan</label>
         <select id="plan">
@@ -238,7 +248,7 @@ footer{
 
     <div class="nav-btns">
       <button class="btn" onclick="prevStep()">Previous</button>
-      <button class="btn" onclick="nextStep()">Next</button>
+      <button class="btn" id="nextBtn" onclick="nextStep()">Next</button>
     </div>
   </div>
 </div>
@@ -248,40 +258,58 @@ let step=1;
 const meta=[
   ["Business Info","Tell us about your business"],
   ["Website Details","Describe your vision"],
-  ["Choose Plan","Final step"]
+  ["Choose Plan","Submit and contact us"]
 ];
 
 function scrollToPricing(){
-  document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
+  pricing.scrollIntoView({behavior:"smooth"});
 }
 
 function startOnboarding(){
-  home.classList.add("hidden");
-  onboarding.classList.remove("hidden");
+  home.style.display="none";
+  onboarding.classList.add("active");
   showStep();
 }
 
 function showStep(){
-  document.querySelectorAll(".step").forEach(s=>s.classList.add("hidden"));
-  document.querySelector(`.step[data-step="${step}"]`).classList.remove("hidden");
+  document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"));
+  document.querySelector(`.step[data-step="${step}"]`).classList.add("active");
   stepTitle.innerText=meta[step-1][0];
   stepDesc.innerText=meta[step-1][1];
+  nextBtn.innerText = step===3 ? "Submit & Email" : "Next";
 }
 
 function nextStep(){
   if(step<3){step++;showStep();}
   else submitForm();
 }
-
 function prevStep(){
   if(step>1){step--;showStep();}
 }
 
 function submitForm(){
-  const body=encodeURIComponent(
-    `Name: ${name.value}\nBusiness: ${business.value}\nEmail: ${email.value}\nPlan: ${plan.value}`
-  );
-  window.location.href="mailto:middlemen1245@gmail.com?subject=Website Request&body="+body;
+  const bodyText=`
+Name: ${name.value}
+Business: ${business.value}
+Email: ${email.value}
+Website Type: ${type.value}
+Description: ${desc.value}
+Plan: ${plan.value}
+  `.trim();
+
+  const subject=encodeURIComponent("New Website Request");
+  const body=encodeURIComponent(bodyText);
+
+  const mailto=`mailto:middlemen1245@gmail.com?subject=${subject}&body=${body}`;
+  const gmail=`https://mail.google.com/mail/?view=cm&fs=1&to=middlemen1245@gmail.com&su=${subject}&body=${body}`;
+  const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if(isMobile){
+    window.location.href=mailto;
+  }else{
+    window.location.href=mailto;
+    setTimeout(()=>window.open(gmail,"_blank"),800);
+  }
 }
 </script>
 
