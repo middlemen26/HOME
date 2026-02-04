@@ -123,6 +123,71 @@
       color:#777; font-size:.9rem;
       border-top:1px solid #1f1f2f;
     }
+  /* ===== OVERLAY FLOW ===== */
+#flowOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,5,15,0.75);
+  backdrop-filter: blur(6px);
+  display: none;
+  z-index: 999;
+}
+
+#flowOverlay.active {
+  display: block;
+}
+
+.flowPanel {
+  position: absolute;
+  right: -100%;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 420px;
+  background: #0f0f1c;
+  padding: 40px 30px;
+  transition: 0.4s ease;
+}
+
+#flowOverlay.active .flowPanel {
+  right: 0;
+}
+
+.flowPanel h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 8px;
+}
+
+.flowPanel p {
+  color: #b9b9c9;
+  margin-bottom: 25px;
+}
+
+.flowPanel input,
+.flowPanel select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #2a2a45;
+  background: #131320;
+  color: #fff;
+}
+
+.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
   </style>
   
 </head>
@@ -169,14 +234,9 @@
 <section class="reveal cta-strip">
   <h2>Start Your Enterprise Online</h2>
   <p>No setup cost • Cancel anytime • We manage everything</p>
-  <a href="#contact" class="btn">Get Started</a>
+<a href="#" class="btn" onclick="openFlow()">Get Started</a>
 </section>
 
-<section id="contact" class="reveal">
-  <h2>Contact</h2>
-  <p>Message us and get your website live.</p>
-  <a class="btn" href="https://wa.me/91XXXXXXXXXX">WhatsApp Now</a>
-</section>
 <section id="start" class="reveal start-flow">
   <h2>Start Your Business Website</h2>
   <p>Fill the details below. We’ll take care of everything.</p>
@@ -208,7 +268,27 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 </script>
-  <script>
+ 
+
+<div id="flowOverlay">
+  <div class="flowPanel">
+    <span class="closeBtn" onclick="closeFlow()">×</span>
+
+    <h2>Start Your Business Website</h2>
+    <p>Fill the details below to begin</p>
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="business" placeholder="Business Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <select id="plan">
+      <option>Basic Plan – ₹1,000 / month</option>
+      <option>Premium Plan – ₹2,000 / month</option>
+    </select>
+
+    <button class="btn full" onclick="sendMail()">Continue</button>
+  </div>
+</div>
+<script>
   function openFlow() {
     document.getElementById("flowOverlay").classList.add("active");
   }
@@ -218,23 +298,28 @@
   }
 
   function sendMail() {
-    const name = document.querySelector('#flowOverlay input[placeholder="Your Name"]').value;
-    const business = document.querySelector('#flowOverlay input[placeholder="Business Name"]').value;
-    const phone = document.querySelector('#flowOverlay input[placeholder="WhatsApp Number"]').value;
-    const plan = document.querySelector('#flowOverlay select').value;
+    const name = document.getElementById("name").value;
+    const business = document.getElementById("business").value;
+    const email = document.getElementById("email").value;
+    const plan = document.getElementById("plan").value;
+
+    if (!name || !business || !email) {
+      alert("Please fill all fields");
+      return;
+    }
 
     const subject = encodeURIComponent("New Website Enquiry");
     const body = encodeURIComponent(
       `Name: ${name}\n` +
       `Business: ${business}\n` +
-      `Phone: ${phone}\n` +
+      `Email: ${email}\n` +
       `Selected Plan: ${plan}`
     );
 
-    window.location.href = `mailto:yourmail@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href =
+      "mailto:middlemen1245@gmail.com?subject=" + subject + "&body=" + body;
   }
 </script>
-
 
 </body>
 </html>
