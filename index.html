@@ -98,12 +98,101 @@ section{
 }
 
 /* ===== FOOTER ===== */
-footer{
-  padding:30px;
+.site-footer{
+  background:#0b0b0f;
+  border-top:1px solid #1f1f35;
+  padding:80px 20px 30px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Glow Text */
+.footer-glow-text{
   text-align:center;
+  font-family:'Poppins',sans-serif;
+  font-size:2rem;
+  font-weight:600;
+  margin-bottom:60px;
+  color:#fff;
+  text-transform:capitalize;
+  text-shadow:
+    0 0 12px rgba(108,99,255,0.6),
+    0 0 30px rgba(108,99,255,0.35);
+}
+
+/* Footer Layout */
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.footer-left h3{
+  font-family:'Poppins',sans-serif;
+  font-size:1.4rem;
+  margin-bottom:12px;
+}
+
+.footer-left p{
+  color:#b9b9c9;
+  font-size:.95rem;
+  line-height:1.6;
+  max-width:380px;
+}
+
+/* Contact */
+.footer-contact span{
+  display:block;
+  font-size:.75rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#6c63ff;
+  margin-bottom:8px;
+}
+
+.footer-contact a,
+.footer-social a{
+  display:block;
+  color:#cfcfe8;
+  text-decoration:none;
+  font-size:.95rem;
+  margin-bottom:10px;
+  transition:.3s ease;
+}
+
+.footer-contact a:hover,
+.footer-social a:hover{
+  color:#6c63ff;
+  text-shadow:0 0 12px rgba(108,99,255,0.6);
+}
+
+/* Bottom Line */
+.footer-bottom{
+  margin-top:50px;
+  padding-top:20px;
+  text-align:center;
+  font-size:.85rem;
   color:#777;
   border-top:1px solid #1f1f2f;
 }
+
+/* Mobile */
+@media(max-width:768px){
+  .footer-inner{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+  }
+
+  .footer-glow-text{
+    font-size:1.6rem;
+  }
+}
+
 
 /* ===== ONBOARDING ===== */
 .hidden{display:none}
@@ -206,7 +295,42 @@ footer{
   <button class="btn" onclick="startOnboarding()">Get Started</button>
 </section>
 
-<footer>© 2026 Middle Men</footer>
+<footer class="site-footer">
+  <!-- Glow Statement -->
+  <div class="footer-glow-text">
+    Expose with Middle Men
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-left">
+      <h3>MIDDLE MEN</h3>
+      <p>
+        Professional websites for small businesses.<br>
+        Simple monthly plans. No technical tension.
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-contact">
+        <span>Contact</span>
+        <a href="mailto:middlemen1245@gmail.com">
+          middlemen1245@gmail.com
+        </a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://instagram.com/middlemen.in" target="_blank">
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Middle Men. All rights reserved.
+  </div>
+</footer>
+
 </div>
 
 <!-- ===== ONBOARDING ===== -->
