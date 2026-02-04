@@ -1,155 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional websites for small businesses. Simple monthly plans." />
-  <title>Professional Web Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Middle Men</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family:'Inter', sans-serif;
-      background:#0b0b0f;
-      color:#fff;
-      line-height:1.6;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Inter,sans-serif;
+  background:#0b0b0f;
+  color:#fff;
+  line-height:1.6
+}
 
-    header {
-      padding:90px 20px;
-      text-align:center;
-      background: radial-gradient(circle at top, #1b1b2f, #0b0b0f 70%);
-    }
+/* ===== HERO ===== */
+header{
+  padding:90px 20px;
+  text-align:center;
+  background:radial-gradient(circle at top,#1b1b2f,#0b0b0f 70%)
+}
+header h1{
+  font-family:Poppins,sans-serif;
+  font-size:2.8rem;
+  margin-bottom:14px
+}
+header p{
+  max-width:620px;
+  margin:0 auto 28px;
+  color:#b9b9c9
+}
 
-    header h1 {
-      font-family:'Poppins', sans-serif;
-      font-size:2.8rem;
-      margin-bottom:14px;
-    }
+/* ===== BUTTON ===== */
+.btn{
+  padding:14px 32px;
+  background:#6c63ff;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer
+}
 
-    header p {
-      max-width:620px;
-      margin:0 auto 28px;
-      color:#b9b9c9;
-    }
+/* ===== SECTIONS ===== */
+section{padding:80px 20px;text-align:center}
 
-    .btn {
-      display:inline-block;
-      padding:14px 32px;
-      background:#6c63ff;
-      color:#fff;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:600;
-      border:none;
-      cursor:pointer;
-    }
+/* ===== PRICING ===== */
+.pricing{
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  flex-wrap:wrap
+}
+.card{
+  background:#131320;
+  border-radius:18px;
+  padding:36px 30px;
+  width:300px;
+  text-align:left;
+  overflow:hidden;
+  transition:.35s ease;
+  box-shadow:0 10px 40px rgba(0,0,0,.4)
+}
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 25px 80px rgba(108,99,255,.35)
+}
+.highlight{
+  border:2px solid #6c63ff
+}
+.card h3{font-family:Poppins,sans-serif}
+.price{
+  font-size:1.7rem;
+  font-weight:700;
+  margin:18px 0;
+  color:#6c63ff
+}
+.card ul{list-style:none}
+.card li{
+  margin:10px 0;
+  color:#cfcfe8;
+  line-height:1.6
+}
 
-    section {
-      padding:80px 20px;
-      text-align:center;
-    }
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(135deg,#151525,#0b0b0f);
+  border-top:1px solid #1f1f35;
+  border-bottom:1px solid #1f1f35
+}
 
-    .pricing {
-      display:flex;
-      gap:25px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
+/* ===== ONBOARDING ===== */
+.hidden{display:none}
+.onboarding{
+  min-height:100vh;
+  padding:60px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start
+}
+.onboard-box{
+  width:100%;
+  max-width:700px;
+  background:#131320;
+  border-radius:18px;
+  padding:40px
+}
+.step-title{
+  font-family:Poppins,sans-serif;
+  font-size:2rem;
+  margin-bottom:8px
+}
+.step-desc{
+  color:#b9b9c9;
+  margin-bottom:30px
+}
+.field{margin-bottom:18px}
+.field label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600
+}
+.field input,.field select,.field textarea{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #2a2a45;
+  background:#0f0f1c;
+  color:#fff
+}
+.nav-btns{
+  display:flex;
+  gap:16px;
+  margin-top:30px
+}
 
-    .card {
-      background:#131320;
-      border-radius:16px;
-      padding:35px 28px;
-      width:300px;
-      text-align:left;
-      box-shadow:0 10px 40px rgba(0,0,0,.4);
-    }
-
-    .price {
-      font-size:1.6rem;
-      font-weight:700;
-      margin:15px 0;
-      color:#6c63ff;
-    }
-
-    .card ul { list-style:none; }
-    .card ul li { margin:10px 0; color:#cfcfe8; }
-
-    .highlight {
-      border:2px solid #6c63ff;
-      transform: translateY(-8px);
-    }
-
-    footer {
-      padding:30px;
-      text-align:center;
-      color:#777;
-      border-top:1px solid #1f1f2f;
-    }
-
-    /* ===== OVERLAY ===== */
-    #flowOverlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(5,5,15,0.75);
-      backdrop-filter: blur(6px);
-      display: none;
-      z-index: 999;
-    }
-
-    #flowOverlay.active { display:block; }
-
-    .flowPanel {
-      position: absolute;
-      inset: 0;
-      margin:auto;
-      max-width:420px;
-      height:100%;
-      background:#0f0f1c;
-      padding:40px 30px;
-    }
-
-    .flowPanel h2 {
-      font-family:'Poppins', sans-serif;
-      margin-bottom:6px;
-    }
-
-    .flowPanel p {
-      color:#b9b9c9;
-      margin-bottom:20px;
-    }
-
-    .flowPanel input,
-    .flowPanel select {
-      width:100%;
-      padding:14px;
-      margin-bottom:14px;
-      border-radius:10px;
-      border:1px solid #2a2a45;
-      background:#131320;
-      color:#fff;
-    }
-
-    .closeBtn {
-      position:absolute;
-      top:18px;
-      right:22px;
-      font-size:1.6rem;
-      cursor:pointer;
-      color:#aaa;
-    }
-  </style>
+/* ===== FOOTER ===== */
+footer{
+  padding:30px;
+  text-align:center;
+  color:#777;
+  border-top:1px solid #1f1f2f
+}
+</style>
 </head>
 
 <body>
 
+<!-- ===== HOME ===== -->
+<div id="home">
+
 <header>
   <h1>MIDDLE MEN</h1>
-  <p>Modern, fast websites with monthly management. No technical tension.</p>
-  <a href="#pricing" class="btn">View Plans</a>
+  <p>Modern, fast websites with monthly management.</p>
+  <button class="btn" onclick="scrollToPricing()">View Plans</button>
 </header>
 
 <section id="pricing">
@@ -181,65 +187,102 @@
   </div>
 </section>
 
-<section>
+<section class="cta">
   <h2>Start Your Enterprise Online</h2>
-  <p>No setup cost • Cancel anytime • We manage everything</p>
-  <button class="btn" onclick="openFlow()">Get Started</button>
+  <p>No setup cost • Cancel anytime</p>
+  <button class="btn" onclick="startOnboarding()">Get Started</button>
 </section>
 
-<footer>
-  © 2026 Middle Men
-</footer>
+<footer>© 2026 Middle Men</footer>
+</div>
 
-<!-- ===== OVERLAY FORM ===== -->
-<div id="flowOverlay">
-  <div class="flowPanel">
-    <span class="closeBtn" onclick="closeFlow()">×</span>
+<!-- ===== ONBOARDING ===== -->
+<div id="onboarding" class="onboarding hidden">
+  <div class="onboard-box">
+    <h1 class="step-title" id="stepTitle"></h1>
+    <p class="step-desc" id="stepDesc"></p>
 
-    <h2>Start Your Business Website</h2>
-    <p>Fill details to begin</p>
+    <!-- STEP 1 -->
+    <div class="step" data-step="1">
+      <div class="field"><label>Name</label><input id="name"></div>
+      <div class="field"><label>Business</label><input id="business"></div>
+      <div class="field"><label>Email</label><input id="email" type="email"></div>
+    </div>
 
-    <input type="text" id="f_name" placeholder="Your Name">
-    <input type="text" id="f_business" placeholder="Business Name">
-    <input type="email" id="f_email" placeholder="Your Email">
+    <!-- STEP 2 -->
+    <div class="step hidden" data-step="2">
+      <div class="field">
+        <label>Website Type</label>
+        <select id="type">
+          <option>Informational</option>
+          <option>E-commerce</option>
+          <option>Portfolio</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="desc"></textarea>
+      </div>
+    </div>
 
-    <select id="f_plan">
-      <option>Basic Plan – ₹1,000 / month</option>
-      <option>Premium Plan – ₹2,000 / month</option>
-    </select>
+    <!-- STEP 3 -->
+    <div class="step hidden" data-step="3">
+      <div class="field">
+        <label>Plan</label>
+        <select id="plan">
+          <option>Basic – ₹1,000</option>
+          <option>Premium – ₹2,000</option>
+        </select>
+      </div>
+    </div>
 
-    <button class="btn" onclick="sendMail()">Continue</button>
+    <div class="nav-btns">
+      <button class="btn" onclick="prevStep()">Previous</button>
+      <button class="btn" onclick="nextStep()">Next</button>
+    </div>
   </div>
 </div>
 
 <script>
-  function openFlow() {
-    document.getElementById("flowOverlay").classList.add("active");
-  }
+let step=1;
+const meta=[
+  ["Business Info","Tell us about your business"],
+  ["Website Details","Describe your vision"],
+  ["Choose Plan","Final step"]
+];
 
-  function closeFlow() {
-    document.getElementById("flowOverlay").classList.remove("active");
-  }
+function scrollToPricing(){
+  document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
+}
 
-  function sendMail() {
-    const name = f_name.value;
-    const business = f_business.value;
-    const email = f_email.value;
-    const plan = f_plan.value;
+function startOnboarding(){
+  home.classList.add("hidden");
+  onboarding.classList.remove("hidden");
+  showStep();
+}
 
-    if (!name || !business || !email) {
-      alert("Please fill all fields");
-      return;
-    }
+function showStep(){
+  document.querySelectorAll(".step").forEach(s=>s.classList.add("hidden"));
+  document.querySelector(`.step[data-step="${step}"]`).classList.remove("hidden");
+  stepTitle.innerText=meta[step-1][0];
+  stepDesc.innerText=meta[step-1][1];
+}
 
-    const subject = encodeURIComponent("New Website Enquiry");
-    const body = encodeURIComponent(
-      `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nPlan: ${plan}`
-    );
+function nextStep(){
+  if(step<3){step++;showStep();}
+  else submitForm();
+}
 
-    window.location.href =
-      "mailto:middlemen1245@gmail.com?subject=" + subject + "&body=" + body;
-  }
+function prevStep(){
+  if(step>1){step--;showStep();}
+}
+
+function submitForm(){
+  const body=encodeURIComponent(
+    `Name: ${name.value}\nBusiness: ${business.value}\nEmail: ${email.value}\nPlan: ${plan.value}`
+  );
+  window.location.href="mailto:middlemen1245@gmail.com?subject=Website Request&body="+body;
+}
 </script>
 
 </body>
