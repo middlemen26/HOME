@@ -3,166 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional website creation and maintenance for small businesses. Affordable monthly plans." />
+  <meta name="description" content="Professional websites for small businesses. Simple monthly plans." />
   <title>Professional Web Services</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0b0b0f;
-      color: #ffffff;
-      line-height: 1.6;
+      font-family:'Inter', sans-serif;
+      background:#0b0b0f;
+      color:#fff;
+      line-height:1.6;
     }
 
+    /* ===== HERO ===== */
     header {
-      padding: 90px 20px;
-      text-align: center;
+      padding:90px 20px;
+      text-align:center;
       background: radial-gradient(circle at top, #1b1b2f, #0b0b0f 70%);
     }
-
     header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 15px;
+      font-family:'Poppins', sans-serif;
+      font-size:2.8rem;
+      margin-bottom:14px;
     }
-
     header p {
-      max-width: 600px;
-      margin: auto;
-      color: #b9b9c9;
-      font-size: 1.05rem;
+      max-width:620px;
+      margin:0 auto 28px;
+      color:#b9b9c9;
     }
 
-    .cta {
-      margin-top: 35px;
-    }
-
+    /* ===== BUTTON ===== */
     .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: #6c63ff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      display:inline-block;
+      padding:14px 32px;
+      background:#6c63ff;
+      color:#fff;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:600;
+      position:relative;
+      overflow:hidden;
     }
-
-    .btn:hover {
-      opacity: 0.9;
+    .btn::after {
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
+      transform:translateX(-100%);
     }
+    .btn:hover::after { transform:translateX(100%); transition:.6s; }
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
+    /* ===== SECTIONS ===== */
+    section { padding:80px 20px; text-align:center; }
     section h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.1rem;
-      margin-bottom: 15px;
+      font-family:'Poppins', sans-serif;
+      font-size:2.1rem;
+      margin-bottom:14px;
     }
-
     section p {
-      color: #b9b9c9;
-      max-width: 600px;
-      margin: 0 auto 50px;
+      color:#b9b9c9;
+      max-width:620px;
+      margin:0 auto 50px;
     }
 
+    /* ===== PRICING ===== */
     .pricing {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
+      display:flex; gap:25px; justify-content:center; flex-wrap:wrap;
     }
-
     .card {
-      background: #131320;
-      border-radius: 16px;
-      padding: 35px 28px;
-      width: 300px;
-      text-align: left;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      background:#131320;
+      border-radius:16px;
+      padding:35px 28px;
+      width:300px;
+      text-align:left;
+      box-shadow:0 10px 40px rgba(0,0,0,.4);
+      transition:transform .3s, box-shadow .3s;
     }
-
+    .card:hover {
+      transform:translateY(-10px) scale(1.02);
+      box-shadow:0 20px 60px rgba(108,99,255,.25);
+    }
     .card h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      font-family:'Poppins', sans-serif;
+      font-size:1.3rem;
+      margin-bottom:10px;
     }
-
     .price {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin: 15px 0;
-      color: #6c63ff;
+      font-size:1.6rem;
+      font-weight:700;
+      margin:15px 0;
+      color:#6c63ff;
     }
-
-    .card ul {
-      list-style: none;
-      margin-top: 20px;
-    }
-
+    .card ul { list-style:none; margin-top:18px; }
     .card ul li {
-      margin: 10px 0;
-      color: #cfcfe8;
-      font-size: 0.95rem;
+      margin:10px 0; color:#cfcfe8; font-size:.95rem;
     }
+    .card ul li::before { content:"✓ "; color:#6c63ff; font-weight:700; }
+    .highlight { border:2px solid #6c63ff; transform:translateY(-8px); }
 
-    .card ul li::before {
-      content: "✓ ";
-      color: #6c63ff;
-      font-weight: bold;
+    /* ===== CTA STRIP ===== */
+    .cta-strip {
+      background:linear-gradient(135deg, #151525, #0b0b0f);
+      border-top:1px solid #1f1f35;
+      border-bottom:1px solid #1f1f35;
     }
+    .cta-strip h2 { font-size:2rem; }
+    .cta-strip p { margin-bottom:26px; }
 
-    .highlight {
-      border: 2px solid #6c63ff;
-      transform: translateY(-8px);
-    }
+    /* ===== REVEAL ===== */
+    .reveal { opacity:0; transform:translateY(40px); transition:.8s ease; }
+    .reveal.active { opacity:1; transform:translateY(0); }
 
+    /* ===== FOOTER ===== */
     footer {
-      padding: 30px;
-      text-align: center;
-      color: #777;
-      font-size: 0.9rem;
-      border-top: 1px solid #1f1f2f;
+      padding:30px; text-align:center;
+      color:#777; font-size:.9rem;
+      border-top:1px solid #1f1f2f;
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<header class="reveal">
   <h1>Professional Websites for Small Businesses</h1>
-  <p>We create and manage modern, fast websites so your business looks professional online without any technical tension.</p>
-  <div class="cta">
-    <a href="#pricing" class="btn">View Plans</a>
-  </div>
+  <p>Modern, fast websites with monthly management. No technical tension.</p>
+  <a href="#pricing" class="btn">View Plans</a>
 </header>
 
-<section id="pricing">
+<section id="pricing" class="reveal">
   <h2>Simple Monthly Pricing</h2>
-  <p>Affordable plans designed for shopkeepers, coaching centers, gyms, and local businesses.</p>
+  <p>Designed for shops, coaching centers, gyms and local businesses.</p>
 
   <div class="pricing">
-
     <div class="card">
       <h3>Basic Plan</h3>
       <div class="price">₹1,000 / month</div>
       <ul>
         <li>1-page professional website</li>
-        <li>Mobile-friendly design</li>
-        <li>WhatsApp contact button</li>
+        <li>Mobile-friendly</li>
+        <li>WhatsApp contact</li>
         <li>Text & image updates</li>
         <li>Website monitoring</li>
       </ul>
@@ -173,25 +156,42 @@
       <div class="price">₹2,000 / month</div>
       <ul>
         <li>Everything in Basic</li>
-        <li>SEO setup (Google ready)</li>
+        <li>SEO setup</li>
         <li>Monthly improvements</li>
         <li>Priority support</li>
-        <li>Faster update turnaround</li>
+        <li>Fast updates</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<section>
-  <h2>How It Works</h2>
-  <p>You contact us → We build your website → You pay monthly → We manage everything.</p>
-  <a class="btn" href="https://wa.me/91XXXXXXXXXX">Contact on WhatsApp</a>
+<section class="reveal cta-strip">
+  <h2>Start Your Enterprise Online</h2>
+  <p>No setup cost • Cancel anytime • We manage everything</p>
+  <a href="#contact" class="btn">Get Started</a>
+</section>
+
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <p>Message us and get your website live.</p>
+  <a class="btn" href="https://wa.me/91XXXXXXXXXX">WhatsApp Now</a>
 </section>
 
 <footer>
-  © 2026 Professional Web Services. All rights reserved.
+  © 2026 Professional Web Services
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const onScroll = () => {
+    const h = window.innerHeight;
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < h - 100) el.classList.add('active');
+    });
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
 
 </body>
 </html>
