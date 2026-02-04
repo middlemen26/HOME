@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://middlemen26.github.io/HOME/sitemap.xml
