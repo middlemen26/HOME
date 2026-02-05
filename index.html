@@ -294,7 +294,7 @@ section{
 
   opacity:0.9;
 }
-/* ===== LOGO INTRO ===== */
+/* ===== LOGO INTRO OVERLAY ===== */
 #logoIntro{
   position:fixed;
   inset:0;
@@ -302,52 +302,43 @@ section{
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:2000;
-  transition:opacity 1s ease, visibility 1s ease;
+  z-index:5000;
+  transition:opacity 1.2s ease, visibility 1.2s ease;
 }
 
+#logoIntro img{
+  width:140px;
+  opacity:0;
+  animation:logoGlow 2s ease forwards;
+  filter:
+    drop-shadow(0 0 12px rgba(108,99,255,.6))
+    drop-shadow(0 0 30px rgba(108,99,255,.35));
+}
+
+/* glow in animation */
+@keyframes logoGlow{
+  from{
+    opacity:0;
+    transform:scale(0.9);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* hide state */
 #logoIntro.hide{
   opacity:0;
   visibility:hidden;
 }
-
-.logo-glow{
-  font-family:'Poppins',sans-serif;
-  font-size:4rem;
-  font-weight:700;
-  letter-spacing:0.15em;
-  color:#fff;
-
-  text-shadow:
-    0 0 15px rgba(108,99,255,0.6),
-    0 0 40px rgba(108,99,255,0.4),
-    0 0 80px rgba(108,99,255,0.25);
-
-  animation:glowPulse 2s ease-in-out infinite;
-}
-
-@keyframes glowPulse{
-  0%,100%{
-    text-shadow:
-      0 0 12px rgba(108,99,255,0.5),
-      0 0 30px rgba(108,99,255,0.3);
-  }
-  50%{
-    text-shadow:
-      0 0 25px rgba(108,99,255,0.9),
-      0 0 70px rgba(108,99,255,0.5);
-  }
-}
-
 </style>
 </head>
 
 <body>
 <!-- ===== LOGO INTRO ===== -->
 <div id="logoIntro">
-  <div class="logo-glow">
-    MM
-  </div>
+  <img src="mm-logo.png" alt="Middle Men Logo" />
 </div>
 
 <!-- ===== HOME ===== -->
@@ -599,15 +590,12 @@ Add your contact number:
     setTimeout(()=>window.open(gmail,"_blank"),800);
   }
 }
-  <script>
+ // ===== LOGO INTRO FADE OUT =====
 window.addEventListener("load", () => {
-  const intro = document.getElementById("logoIntro");
-
   setTimeout(() => {
-    intro.classList.add("hide");
-  }, 2200); // 2.2 sec logo glow
+    document.getElementById("logoIntro").classList.add("hide");
+  }, 2300); // logo visible time
 });
-</script>
 
 </script>
 
