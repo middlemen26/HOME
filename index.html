@@ -278,6 +278,22 @@ section{
   gap:16px;
   margin-top:30px;
 }
+  .popup-note-glow{
+  margin-top:16px;
+  text-align:center;
+  font-size:.85rem;
+  font-style:italic;
+  color:#d6d6ff;
+  letter-spacing:.02em;
+
+  /* subtle glow */
+  text-shadow:
+    0 0 6px rgba(108,99,255,0.55),
+    0 0 14px rgba(108,99,255,0.25);
+
+  opacity:0.9;
+}
+
 </style>
 </head>
 
@@ -488,6 +504,9 @@ function showStep(){
   stepDesc.innerText=meta[step-1][1];
   nextBtn.innerText = step===3 ? "Submit & Email" : "Next";
 }
+<p class="popup-note-glow">
+  *If you’re using a PC or laptop, please allow pop-ups and click Submit again.
+</p>
 
 function nextStep(){
   if(step<3){step++;showStep();}
