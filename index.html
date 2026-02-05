@@ -337,6 +337,20 @@ section{
   opacity:0;
   visibility:hidden;
 }
+  #logoIntro::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle, rgba(108,99,255,.15), transparent 60%);
+  animation:pulse 2.2s ease infinite;
+}
+
+@keyframes pulse{
+  0%{opacity:.3}
+  50%{opacity:.6}
+  100%{opacity:.3}
+}
+
 </style>
 </head>
 
@@ -595,22 +609,22 @@ Add your contact number:
     setTimeout(()=>window.open(gmail,"_blank"),800);
   }
 }
+
+</script>
 <script>
 window.addEventListener("load", () => {
   const intro = document.getElementById("logoIntro");
+  document.body.classList.add("locked");
 
-  // stay visible for a moment
   setTimeout(() => {
     intro.classList.add("hide");
-  }, 2600); // glow complete ayyaka
+  }, 2600);
 
-  // remove from DOM completely
   setTimeout(() => {
     intro.remove();
+    document.body.classList.remove("locked");
   }, 4200);
 });
-</script>
-
 </script>
 
 </body>
