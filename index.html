@@ -72,6 +72,7 @@ section{
   display:flex;
   gap:30px;
   justify-content:center;
+  align-items:stretch;   /* IMPORTANT */
   flex-wrap:wrap;
 }
 .card{
@@ -80,6 +81,9 @@ section{
   padding:38px 32px;
   width:300px;
   text-align:left;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between; /* SAME HEIGHT MAGIC */
   transition:.35s ease;
   box-shadow:0 10px 40px rgba(0,0,0,.4);
 }
@@ -101,6 +105,22 @@ section{
   line-height:1.6;
 }
 .highlight{border:2px solid #6c63ff}
+.card.platinum{
+  background:linear-gradient(160deg,#15152b,#0f0f1c);
+  border:2px solid #8b8bff;
+  box-shadow:
+    0 15px 60px rgba(139,139,255,.25),
+    inset 0 0 30px rgba(139,139,255,.08);
+}
+
+.card.platinum .price{
+  color:#9fa0ff;
+}
+
+.card.platinum:hover{
+  transform:translateY(-14px) scale(1.02);
+  box-shadow:0 30px 90px rgba(139,139,255,.45);
+}
 
 /* ===== CTA ===== */
 .cta{
@@ -276,41 +296,43 @@ section{
   <h2>Simple Monthly Pricing</h2>
   <p>Designed for shops, coaching centers, gyms and local businesses.</p>
 
-  <div class="pricing">
-    <div class="card">
-      <h3>Basic Plan</h3>
-      <div class="price">₹1,000 / month</div>
-      <ul>
-        <li>Professional website</li>
-        <li>Mobile friendly</li>
-        <li>Text & image updates</li>
-        <li>Website monitoring</li>
-      </ul>
-    </div>
+ <div class="pricing">
 
-    <div class="card highlight">
-      <h3>Premium Plan</h3>
-      <div class="price">₹2,000 / month</div>
-      <ul>
-        <li>Everything in Basic</li>
-        <li>SEO setup</li>
-        <li>Priority support</li>
-        <li>Fast updates</li>
-      </ul>
-    </div>
+  <div class="card">
+    <h3>Basic Plan</h3>
+    <div class="price">₹1,000 / month</div>
+    <ul>
+      <li>Professional website</li>
+      <li>Mobile friendly</li>
+      <li>Text & image updates</li>
+      <li>Website monitoring</li>
+    </ul>
   </div>
+
   <div class="card highlight">
-  <h3>Platinum Plan</h3>
-  <div class="price">₹4,000 / month</div>
-  <ul>
-    <li>Everything in Premium</li>
-    <li>Premium pages (up to 15–20)</li>
-    <li>Advanced SEO setup</li>
-    <li>Custom UI sections</li>
-    <li>Lead capture forms</li>
-    <li>Google Search Console setup</li>
-    <li>Priority support & updates</li>
-  </ul>
+    <h3>Premium Plan</h3>
+    <div class="price">₹2,000 / month</div>
+    <ul>
+      <li>Everything in Basic</li>
+      <li>SEO setup</li>
+      <li>Priority support</li>
+      <li>Fast updates</li>
+    </ul>
+  </div>
+
+  <div class="card platinum">
+    <h3>Platinum Plan</h3>
+    <div class="price">₹4,000 / month</div>
+    <ul>
+      <li>Everything in Premium</li>
+      <li>Premium pages (15–20)</li>
+      <li>Advanced SEO</li>
+      <li>Custom UI sections</li>
+      <li>Lead capture forms</li>
+      <li>Priority same-day updates</li>
+    </ul>
+  </div>
+
 </div>
 
 </section>
