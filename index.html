@@ -396,11 +396,38 @@ section{
     <h1 class="step-title" id="stepTitle"></h1>
     <p class="step-desc" id="stepDesc"></p>
 
-    <div class="step active" data-step="1">
-      <div class="field"><label>Name</label><input id="name"></div>
-      <div class="field"><label>Business</label><input id="business"></div>
-      <div class="field"><label>Email</label><input id="email" type="email"></div>
-    </div>
+   <div class="step active" data-step="1">
+
+  <div class="field">
+    <label>Your Name</label>
+    <input id="name" placeholder="Enter your name">
+  </div>
+
+  <div class="field">
+    <label>Business Name</label>
+    <input id="business" placeholder="Your business name">
+  </div>
+
+  <div class="field">
+    <label>Business Type</label>
+    <select id="businessType">
+      <option value="">Select business type</option>
+      <option>General Store</option>
+      <option>Fashion / Clothing</option>
+      <option>Restaurant / Cafe</option>
+      <option>Salon / Spa</option>
+      <option>Gym / Fitness</option>
+      <option>Coaching / Institute</option>
+      <option>Medical / Clinic</option>
+      <option>Real Estate</option>
+      <option>E-commerce</option>
+      <option>Service Business</option>
+      <option>Startup</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+</div>
 
     <div class="step" data-step="2">
       <div class="field">
@@ -474,10 +501,17 @@ function submitForm(){
   const bodyText=`
 Name: ${name.value}
 Business: ${business.value}
-Email: ${email.value}
+Business Type: ${businessType.value}
 Website Type: ${type.value}
 Description: ${desc.value}
 Plan: ${plan.value}
+------------------------
+Please add your address here(google maps link-if possible):
+
+Add your contact number:
+
+  THANK YOU FOR CHOOSING MIDDLE MEN!
+  
   `.trim();
 
   const subject=encodeURIComponent("New Website Request");
