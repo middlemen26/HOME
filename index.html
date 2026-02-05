@@ -294,11 +294,61 @@ section{
 
   opacity:0.9;
 }
+/* ===== LOGO INTRO ===== */
+#logoIntro{
+  position:fixed;
+  inset:0;
+  background:#0b0b0f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+
+#logoIntro.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.logo-glow{
+  font-family:'Poppins',sans-serif;
+  font-size:4rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  color:#fff;
+
+  text-shadow:
+    0 0 15px rgba(108,99,255,0.6),
+    0 0 40px rgba(108,99,255,0.4),
+    0 0 80px rgba(108,99,255,0.25);
+
+  animation:glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%,100%{
+    text-shadow:
+      0 0 12px rgba(108,99,255,0.5),
+      0 0 30px rgba(108,99,255,0.3);
+  }
+  50%{
+    text-shadow:
+      0 0 25px rgba(108,99,255,0.9),
+      0 0 70px rgba(108,99,255,0.5);
+  }
+}
 
 </style>
 </head>
 
 <body>
+<!-- ===== LOGO INTRO ===== -->
+<div id="logoIntro">
+  <div class="logo-glow">
+    MM
+  </div>
+</div>
 
 <!-- ===== HOME ===== -->
 <div id="home">
@@ -549,6 +599,16 @@ Add your contact number:
     setTimeout(()=>window.open(gmail,"_blank"),800);
   }
 }
+  <script>
+window.addEventListener("load", () => {
+  const intro = document.getElementById("logoIntro");
+
+  setTimeout(() => {
+    intro.classList.add("hide");
+  }, 2200); // 2.2 sec logo glow
+});
+</script>
+
 </script>
 
 </body>
