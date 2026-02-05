@@ -245,6 +245,7 @@ section{
   background:#131320;
   border-radius:20px;
   padding:40px;
+
 }
 .step-title{
   font-family:'Poppins',sans-serif;
@@ -476,7 +477,12 @@ section{
       <button class="btn" onclick="prevStep()">Previous</button>
       <button class="btn" id="nextBtn" onclick="nextStep()">Next</button>
     </div>
+  <div class="popup-note-glow">
+  *If you are using a PC or laptop, please allow the pop-up and click submit again.
+</div>
+
   </div>
+  
 </div>
 
 <script>
@@ -504,9 +510,6 @@ function showStep(){
   stepDesc.innerText=meta[step-1][1];
   nextBtn.innerText = step===3 ? "Submit & Email" : "Next";
 }
-<p class="popup-note-glow">
-  *If you’re using a PC or laptop, please allow pop-ups and click Submit again.
-</p>
 
 function nextStep(){
   if(step<3){step++;showStep();}
