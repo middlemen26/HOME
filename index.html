@@ -353,6 +353,39 @@ section{
   50%{opacity:.6}
   100%{opacity:.3}
 }
+/* ===== DEMO VIDEO ===== */
+.demo-section{
+  padding:120px 20px;
+  text-align:center;
+}
+
+.demo-section h2{
+  font-family:'Poppins',sans-serif;
+  font-size:2.2rem;
+  margin-bottom:12px;
+}
+
+.demo-section p{
+  color:#b9b9c9;
+  max-width:620px;
+  margin:0 auto 40px;
+}
+
+.demo-video-wrapper{
+  max-width:900px;
+  margin:0 auto;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:
+    0 0 40px rgba(108,99,255,0.25),
+    0 0 80px rgba(108,99,255,0.15);
+}
+
+.demo-video-wrapper video{
+  width:100%;
+  display:block;
+  background:#000;
+}
 
 </style>
 </head>
@@ -416,6 +449,21 @@ section{
 </div>
 
 </section>
+  <section class="demo-section">
+  <h2>OUR WORKS</h2>
+  <p>See how a real business looks after working with Middle Men.</p>
+
+  <div class="demo-video-wrapper">
+    <video 
+      src="demo.mp4" 
+      controls 
+      muted 
+      playsinline 
+      preload="metadata">
+    </video>
+  </div>
+</section>
+
 
 <section class="cta">
   <h2>Start Your Enterprise Online</h2>
